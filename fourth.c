@@ -15,13 +15,13 @@ public:
     cout<<"x is ="<<x<<endl;
   }
 };
-class B:public A
+class B
 {
 public:
   int y;
-  B(int b,int c):A(b)
+  B(int b)
   {
-    y=c;
+    y=b;
       cout<<"Constructor of B called"<<endl;
   }
   void showb()
@@ -30,11 +30,11 @@ public:
     cout<<"y is ="<<y<<endl;
   }
 };
-class C:public B
+class C:public A,public B
 {
 public:
   int z;
-  C(int a,int b,int c):B(a,b)
+  C(int a,int b,int c):A(a),B(b)
   {
     z=c;
       cout<<"Constructor of C called"<<endl;
@@ -47,7 +47,6 @@ public:
 };
 int main()
 {
-
   C obj(10,20,30);
   obj.showa();
   obj.showb();
